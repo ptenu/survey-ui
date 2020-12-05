@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: $black-grey;
+    font-size: 13pt;
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    border: 1px solid transparentize($black-grey, .77);
+}
+
+// ********** HEADINGS **********
+h1, h2, h3, h4, h5, h6 {
+    color: $black-blue;
+    margin: 1.33rem 0;
+}
+
+h1 {
+    font-size: 29pt;
+}
+
+h2 {
+    font-size: 23pt;
+}
+
+h3 {
+    font-size: 19pt;
+}
+
+h4 {
+    font-size: 17pt;
+}
+
+h5 {
+    font-size: 16pt;
+}
+
+h6 {
+    font-size: 15pt;
+}
+
+// ********** LINKS **********
+a:not(.button) {
+    color: saturate(darken($link, 8%), 1.11);;
+
+    &:hover {
+        color: saturate(darken($link, 20%), 1.11);
+    }
+
+    &:focus {
+        background-color: saturate($yellow, 15%);
+        color: $black-blue;
+        box-shadow: 0 4px 0 0 $black-blue;
+        text-decoration: none;
+        outline: none;
+        border-radius: 0;
+    }
+}
+
+// ********** INLINE **********
+del {
+    color: darken($red, 6.6%);
+    background-color: $light-grey;
+}
+ins {
+    color: saturate(darken($green, 20%), 1.12);
+    background-color: $light-grey;
+}
+kbd {
+    background-color: $light-grey;
+    padding: 1px 2px;
+    border: .66px solid darken($light-grey, 15%);
+    border-radius: 2px;
+}
+code {
+    background-color: $black-blue;
+    color: lighten($yellow, 13%);
+    padding: 1px 2px;
+    border: .66px solid $black-grey;
+    border-radius: 3px;
+}
+var {
+    font-family: monospace;
+    color: darken($red, 8%);
+    font-style: normal;
+}
+q {
+    font-style: oblique;
+    opacity: .975;
+}
+
+// ********** BLOCKS **********
+blockquote {
+    border-left: 5px solid darken($light-grey, 3%);
+    padding: .33rem 2rem;
+    margin-left: 0;
+    background-color: lighten($light-grey, 3%);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    legend {
+        font-weight: 500;
+        padding: 0;
+    }
+}
+
+// ********** FORMS **********
+label {
+    display: block;
+    margin-bottom: .66em;
+    max-width: 100%;
+}
+
+input, .input, textarea {
+    font-size: 14pt;
+    padding: 6px;
+    border-radius: 0;
+    border: 2px solid $black-grey;
+    outline: none;
+    margin: 0 .66em .33em 0;
+
+    &[data-width="2"] {
+        width: 5.4ex;
+        max-width: 100%;
+    }
+    &[data-width="3"] {
+        width: 7.2ex;
+        max-width: 100%;
+    }
+    &[data-width="4"] {
+        width: 9ex;
+        max-width: 100%;
+    }
+    &[data-width="5"] {
+        width: 10.8ex;
+        max-width: 100%;
+    }
+    &[data-width="10"] {
+        width: 23ex;
+        max-width: 100%;
+    }
+    &[data-width="20"] {
+        width: 41ex;
+        max-width: 100%;
+    }
+    &[data-width="30"] {
+        width: 64ex;
+        max-width: 100%;
+    }
+    &[data-width="full"] {
+        width: 100%;
+    }
+}
+
+textarea {
+    font-family: system-ui, "system";
+    font-size: 12pt;
+}
+
+input::placeholder, .input *::placeholder, textarea::placeholder {
+    color: darken($light-grey, 56%);
+    font-weight: 200;
+    font-family: system-ui, "system";
+}
+
+input:focus, .input:focus-within, textarea:focus {
+    border-radius: 0;
+    box-shadow: 0 0 0 1px inset $black-grey, 0 0 0 3px saturate($yellow, 15%);
+}
+
+input[type=color] {
+    min-height: 2em;
+    padding: 0;
+}
+
+select {
+    border-radius: 0;
+    outline: none;
+    font-size: 14pt;
+    padding: 6px;
+    border: 2px solid $black-grey;
+    font-family: system-ui, "system";
+}
+select:focus {
+    box-shadow: 0 0 0 1px inset $black-grey, 0 0 0 3px saturate($yellow, 15%);
+}
+
+// ********** TABLE **********
+table {
+    border-collapse: collapse;
+    margin: 1rem 0 3rem;
+
+    caption {
+        font-weight: 500;
+        text-align: left;
+    }
+
+    tr {
+        border-bottom: 1px solid lighten($black-grey, 56%);
+    }
+
+    th {
+        text-align: left;
+    }
+
+    td, th {
+        padding: .75rem .45rem;
+
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+}
+
+// ********** LISTS **********
+dl {
+    dt {
+        font-weight: 500;
+    }
+
+    dd ~ dt {
+        margin-top: .89rem;
+    }
+
+    dd {
+        margin-bottom: .44rem;
+    }
+}
+
+ul, ol {
+    li {
+        margin: .56rem 0;
+    }
+}

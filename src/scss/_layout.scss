@@ -1,0 +1,13 @@
+.tg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tg-alert {
+    $base-color: lighten($red, 30%);
+    border-left: 5px solid darken($base-color, 15%);
+    padding: .33rem 2rem;
+    margin-left: 0;
+    background-color: lighten($base-color, 3%);
+}

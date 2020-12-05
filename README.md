@@ -1,7 +1,6 @@
-# Getting Started with Create React App
+# Survey UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Takes JSON question schema from the API and outputs a multi-page form.
 ## Available Scripts
 
 In the project directory, you can run:

@@ -11,3 +11,9 @@
     margin-left: 0;
     background-color: lighten($base-color, 3%);
 }
+
+table {
+    fieldset {
+        margin: 0 0 !important;
+    }
+}

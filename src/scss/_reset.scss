@@ -197,6 +197,7 @@ select:focus {
 table {
     border-collapse: collapse;
     margin: 1rem 0 3rem;
+    width: 100%;
 
     caption {
         font-weight: 500;
@@ -213,9 +214,15 @@ table {
 
     td, th {
         padding: .75rem .45rem;
+        vertical-align: top;
 
         &:first-child {
             padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+            text-align: right;
         }
     }
 }

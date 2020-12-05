@@ -24,6 +24,41 @@ class FormPage extends React.Component {
         this.updateField = this.updateField.bind(this)
     }
 
+    componentDidMount() {
+        this.setState({
+            values: this.props.fields
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevState.currentQuestion === this.state.currentQuestion) {
+            return
+        }
+
+        let question = this.questions[this.state.currentQuestion]
+
+        if ("if_or" in question) {
+            let display = false
+            for (let i = 0; i < question["if_or"].length; i++) {
+                let condition = question["if_or"][i]
+                let test_value = this.props.fields[condition["field"]]
+                if (test_value === condition["value"]) {
+                    display = true
+                }
+            }
+
+            if (!display) {
+                let current = this.state.currentQuestion
+                if (current === (this.questions.length - 1)) {
+                    this.props.onNext(null)
+                }
+                this.setState({
+                    currentQuestion: current + 1,
+                })
+            }
+        }
+    }
+
     back(e) {
         let current = this.state.currentQuestion
         if (current === 0) {
@@ -41,8 +76,8 @@ class FormPage extends React.Component {
             field,
             this.state.values[field] || ''
         )
-        if (current === (this.questions.length-1)) {
-            return
+        if (current === (this.questions.length - 1)) {
+            this.props.onNext(e)
         }
         this.setState({
             currentQuestion: current + 1,
@@ -86,14 +121,13 @@ class FormPage extends React.Component {
                     <p>
                         {question["descr"]}
                     </p>
-                    <div>
-                        <FieldComponent {...props}
-                                        key={this.state.currentQuestion}
-                                        updateValue={this.updateField}
-                                        options={options}
-                                        name={question["field"]}
-                                        value={this.state.values[question["field"]]} />
-                    </div>
+                    <FieldComponent {...props}
+                                    key={this.state.currentQuestion}
+                                    updateValue={this.updateField}
+                                    options={options}
+                                    name={question["field"]}
+                                    value={this.props.fields[question["field"]]}
+                    />
                 </section>
                 <footer>
                     <button onClick={this.back}>Back</button>

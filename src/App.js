@@ -5,6 +5,7 @@ import './scss/style.scss';
 // Pages
 import StartPage from "./pages/start";
 import FormPage from "./pages/form";
+import SummaryPage from "./pages/summary";
 
 // Base url
 
@@ -22,7 +23,8 @@ class App extends React.Component {
 
         this.pages = [
             StartPage,
-            FormPage
+            FormPage,
+            SummaryPage
         ]
 
         this.back = this.back.bind(this)
@@ -89,6 +91,7 @@ class App extends React.Component {
                 <Page onBack={this.back}
                       onNext={this.next}
                       questions={this.state.questions}
+                      fields={this.state.fields}
                       updateField={this.update}
                 />
             </div>

@@ -7,7 +7,7 @@ class StartPage extends React.Component {
         return (
             <article>
                 <header>
-                    <h2>Before we start</h2>
+                    <h2>Before you start</h2>
                 </header>
                 <section>
                     <p>

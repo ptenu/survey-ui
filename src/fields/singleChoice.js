@@ -30,28 +30,40 @@ class SingleChoiceField extends React.Component {
             if (keys.length <= 5) {
                 return (
                     <div className="tg-checkbox" key={key}>
-                        <input type="radio" value={key} name={this.props.name} onChange={this.update}/>
+                        <input type="radio"
+                               value={key}
+                               name={this.props.name}
+                               onChange={this.update}
+                               checked={key === this.state.value}
+                        />
                         <label>{this.props.options[key]}</label>
                     </div>
                 )
             }
 
             return (
-                <option key={key} value={key}>{this.props.options[key]}</option>
+                <option key={key}
+                        value={key}>
+                    {this.props.options[key]}
+                </option>
             )
         })
 
         return (
             <fieldset className="tg-field">
-                <p className="hint">Pick one option</p>
                 {keys.length > 5 && (
-                    <select style={{maxWidth: "600px"}} onChange={this.update}>
+                    <select style={{maxWidth: "600px"}}
+                            onChange={this.update}
+                            defaultValue={this.props.value}
+                    >
+                        <option value="">-- Pick one --</option>
                         {options}
                     </select>
                 )}
 
                 {keys.length <= 5 && (
                     <div>
+                        <p className="hint">Pick one option</p>
                         {options}
                     </div>
                 )}

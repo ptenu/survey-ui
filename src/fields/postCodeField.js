@@ -33,9 +33,9 @@ class PostCodeField extends React.Component {
 
         let post_code = ''
         if (part === 'incode') {
-            post_code = `${this.state.outcode} ${new_value}`.toUpperCase()
+            post_code = `${this.state.outcode} ${new_value.trim()}`.toUpperCase()
         } else {
-            post_code = `${new_value} ${this.state.outcode}`.toUpperCase()
+            post_code = `${new_value.trim()} ${this.state.outcode}`.toUpperCase()
         }
 
         this.props.updateValue(post_code)
@@ -45,16 +45,14 @@ class PostCodeField extends React.Component {
         return (
             <fieldset className="tg-field">
                 <p className="hint">Example: PE1 1HF</p>
-                <input type={this.props.type}
-                       name="outcode"
+                <input name="outcode"
                        data-width={4}
                        value={this.state.outcode}
-                       onInput={this.update} />
-                <input type={this.props.type}
-                       name="incode"
+                       onInput={this.update}/>
+                <input name="incode"
                        data-width={3}
                        value={this.state.incode}
-                       onInput={this.update} />
+                       onInput={this.update}/>
             </fieldset>
         )
     }
